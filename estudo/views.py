@@ -1,6 +1,17 @@
 from estudo import app
-from flask import render_template
+from flask import render_template, url_for
 
 @app.route('/')
 def homepage():
-    return render_template('index.html')
+    usuario = 'Camp Code'
+    idade = 37
+    
+    context = {
+        'usuario': usuario,
+        'idade': idade
+    }
+    return render_template('index.html', context=context)
+
+@app.route('/contatos/')
+def newpage():
+    return 'outra view'
