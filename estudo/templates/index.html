@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Estudos Flask - Camp Code</title>
-  </head>
-  <body>
+{% extends 'base.html' %}
+
+{% block content %} 
+  <div class="container fluid mt-2">
     <div>
       <h3>Estudo Flask</h3>
       <h5>@CodeCampBrasil</h5>
     </div>
 
+    {% include 'nav.html'%}
+
     <div>
       <p>Bem vindo {{context.usuario}} a aula de Flask!!!</p>
       <p><b>Idade:</b> {{context.idade}}</p>
 
-      <a href="{{url_for('contato_old')}}">Canal de contatos antigo</a>
-      <p>
-      <a href="{{url_for('contato')}}">Novo canal de contatos</a>
-      <p>
-      <a href="{{url_for('contatoLista')}}">Contato - Lista</a>
-      
+      <img src="{{ url_for('static', filename='img/gato.png') }}" alt="">
     </div>
-  </body>
-</html>
+  </div>
+{% endblock %}
