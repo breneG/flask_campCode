@@ -13,6 +13,15 @@
       <p>Bem vindo {{context.usuario}} a aula de Flask!!!</p>
       <p><b>Idade:</b> {{context.idade}}</p>
 
+      {% if current_user.is_authenticated %}
+        <span class="btn btn-primary">{{ current_user.nome }} {{ current_user.sobrenome }}</span>
+        <a href="" class="btn btn-danger">Sair</a>
+      {% else %}
+        <a href="{{ url_for('cadastro') }}" class="btn btn-primary">Cadastre-se</a>
+      {% endif %}
+
+      <hr> 
+
       <img src="{{ url_for('static', filename='img/gato.png') }}" alt="">
     </div>
   </div>
